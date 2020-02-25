@@ -1,0 +1,39 @@
+1. Create a matrix 50x50 with random numbers
+2. Calculate probability distribution function
+3. Calculate cummulative distribution function
+4. Calculate semi variogram plot of data (Distance matrix)
+5. Fit semivariogram model. Find Nugget, sill, range 
+6. Apply Basic SGS Algorithm
+6.1. Generate a random path through the grid
+6.2. Use kriging to estimate mean, 𝜇, and standard deviation, 𝜎, of property at node conditional to any real data and previously simulated grid nodes in neighborhood 
+6.3. Assign property value at grid node to value selected at random from 𝑁(𝜇,𝜎) 
+(Normalize data)
+
+
+
+
+
+Use kriging to estimate mean, 𝜇, and standard deviation, 𝜎, of property at node conditional to any real data and previously simulated grid nodes in neighborhood
+
+
+
+Basic SGS Algorithm
+For each realization 
+ Generate a random path through the grid 
+ For each grid node in path 
+  Use kriging to estimate mean, 𝜇, and standard deviation, 𝜎, of property at node conditional to any real data and previously simulated grid nodes in neighborhood 
+  Assign property value at grid node to value selected at random from 𝑁(𝜇,𝜎) 
+ Next grid node 
+Next realization
+
+(Pseudo-)Random Numbers in SGS
+•(Pseudo-) random number generator (RNG) used in two ways in SGS:
+–To generate random paths through grid (permutation of cell indices)
+–To generate random samples from Gaussian distribution at each grid node
+•Starting RNG from same seed will generate same (sequence of) realization(s)
+•Starting RNG from different seed will generate different (sequence of) realization(s)
+
+
+
+SGS solves kriging equations and then sets porosity at grid point to a value selected at random from 𝑁(𝜇,𝜎)
+
